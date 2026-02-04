@@ -31,7 +31,7 @@ pipeline {
         stage('Build Docker Image'){
             steps {
                 echo 'Building Docker Image...'
-                but 'docker build -t dummy-backend .'
+                bat 'docker build -t dummy-backend .'
             }
         }
     }
