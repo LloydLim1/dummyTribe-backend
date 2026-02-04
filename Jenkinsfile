@@ -27,5 +27,12 @@ pipeline {
                 // sh 'npm test' (We will activate this later)
             }
         }
+
+        stage('Build Docker Image'){
+            steps {
+                echo 'Building Docker Image...'
+                but 'docker build -t dummy-backend .'
+            }
+        }
     }
 }
