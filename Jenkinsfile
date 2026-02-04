@@ -21,10 +21,11 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        stage('Run Tests') {
             steps {
                 echo 'Running Unit Tests...'
-                // sh 'npm test' (We will activate this later)
+                // If this fails, the pipeline STOPS here.
+                bat 'npm test'
             }
         }
 
