@@ -16,8 +16,8 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                // Installs the libraries (Express, etc.)
-                sh 'npm install'
+                // We use 'bat' because your Jenkins is on Windows
+                bat 'npm install' 
             }
         }
         
