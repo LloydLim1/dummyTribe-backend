@@ -9,3 +9,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Tribe 1 listening at http://localhost:${port}`);
 });
+
+//Testing full automation
