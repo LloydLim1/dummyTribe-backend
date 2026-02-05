@@ -20,6 +20,22 @@ pipeline {
                 bat 'npm install' 
             }
         }
+
+        // --- NEW STAGE: The Inspector ---
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    // 1. Get the scanner tool (must match the name in Jenkins Global Tools)
+                    def scannerHome = tool 'sonar-scanner'
+                    
+                    // 2. Connect to the server (must match the name in Jenkins System)
+                    withSonarQubeEnv('sonar-server') {
+                        // 3. Run the scan command
+                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=backend-repo -Dsonar.sources=."
+                    }
+                }
+            }
+        }
         
         stage('Run Tests') {
             steps {
